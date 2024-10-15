@@ -10,8 +10,8 @@ const answer = async (state, village, country, question) => {
                   is the nearest hospital/doctor that i can go to for help based on my location?`;
 
 
-  const res = await api.sendMessage(question); of
-  console.log(res.text);
+  const res = await api.sendMessage(question); 
+  return res.text;
 };
 
 export default answer;
