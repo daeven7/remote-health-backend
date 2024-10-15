@@ -37,9 +37,8 @@ app.post("/answer", async function (req, res) {
 });
 
 app.post("/answerAdvanced", async function (req, res) {
-  const { state, village, country, question } = req.body; // Extract state, village, country, and question from the body
+  const { state, village, country, question } = req.body; 
 
-  // Check if all required fields are provided
   if (!state || !village || !country || !question) {
     return res
       .status(400)
