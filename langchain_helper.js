@@ -73,7 +73,6 @@ const langchainAnswer = async () => {
         context: retrievedDocs,
     });
     console.log(answer);
-    // return retrievedDocs
     return answer;
 }
 
