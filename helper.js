@@ -1,16 +1,20 @@
 import { ChatGPTAPI } from "chatgpt";
+import dotenv from 'dotenv';
 
-const answer = async (state, village, country, question) => {
+dotenv.config();
+
+
+const answer = async (question) => {
   const api = new ChatGPTAPI({
-    // apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY 
   });
 
-  const prompt = `I am a resident the state of ${state}, village of ${village}, country of ${country}, 
-                  I am sick and this is my question and my symptoms: "${question}". Could you diagnose my sickess and also tell me which 
-                  is the nearest hospital/doctor that i can go to for help based on my location?`;
+  const prompt = `
+                  I am sick and these are my symptoms: "${question}". 
+                  Could you diagnose my sickess and tell me some otc drugs. Dont start with i am not a doctor, or based on your symptoms`;
 
 
-  const res = await api.sendMessage(question); 
+  const res = await api.sendMessage(prompt);
   return res.text;
 };
 
